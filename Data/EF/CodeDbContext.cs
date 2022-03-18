@@ -27,6 +27,13 @@ namespace Data.EF
 
             modelBuilder.ApplyConfiguration(new AppConfigConfiguration());
 
+            modelBuilder.ApplyConfiguration(new CtrKhachHangConfiguration());
+            modelBuilder.ApplyConfiguration(new CtrCongNoConfiguration());
+            modelBuilder.ApplyConfiguration(new CtrHopDongConfiguration());
+            modelBuilder.ApplyConfiguration(new DoiTacConfiguration());
+            modelBuilder.ApplyConfiguration(new FileHopDongConfiguration());
+
+
             modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("AppUserClaims");
             modelBuilder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRoles").HasKey(x => new { x.UserId, x.RoleId });
 
@@ -38,5 +45,10 @@ namespace Data.EF
         }
         public DbSet<AppConfig> Configs { get; set; }
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<CtrDoiTac> CtrDoiTacs { get; set; }
+        public DbSet<CtrHopDong> CtrHopDongs { get; set; }
+        public DbSet<CtrKhachHang> CtrKhachHangs { get; set; }
+        public DbSet<CtrCongNo> CtrCongNos { get; set; }
+        public DbSet<FileHopDong> FileHopDongs { get; set; }
     }
 }
